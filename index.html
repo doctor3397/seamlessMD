@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <body>
+
+    <h2>Patient</h2>
+    <ul>
+      <li>Name of patient: <span id="name"></span></li>
+      <li>Organization name: <span id="organization"></span></li>
+      <li>Gender: <span id="gender"></span></li>
+      <li>Number of conditions they have: <span id="num_conditions"></span></li>
+      <li>List of all conditions:  <span id="conditions"></span></li>
+    </ul>
+    <script type="text/javascript" language="javascript" src="patient.json"></script>
+    <script>
+
+      var firstName = patient.identifier.name[0].family[0];
+      var givenName = patient.identifier.name[0].given[0];
+      var organization = patient.identifier.managingOrganization.display;
+      var gender = patient.identifier.gender;
+      var num_conditions = patient.identifier.conditions.length;
+      var conditions = patient.identifier.conditions;
+
+      document.getElementById("name").innerHTML = firstName + " " + givenName;
+      document.getElementById("organization").innerHTML = organization;
+      document.getElementById("gender").innerHTML = gender;
+      document.getElementById("num_conditions").innerHTML = num_conditions;
+      document.getElementById("conditions").innerHTML = conditions.toString();
+
+    </script>
+  </body>
+</html>
